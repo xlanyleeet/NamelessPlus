@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Staff panel social media page
  *
@@ -53,6 +54,15 @@ if (Input::exists()) {
         // Facebook URL
         Settings::set('fb_url', Input::get('fburl'));
 
+        // Discord URL
+        Settings::set('discord_url', Input::get('discordurl'));
+
+        // Instagram URL
+        Settings::set('instagram_url', Input::get('instagramurl'));
+
+        // TikTok URL
+        Settings::set('tiktok_url', Input::get('tiktokurl'));
+
         Session::flash('social_success', $language->get('admin', 'social_media_settings_updated'));
         Redirect::to(URL::build('/panel/core/social_media'));
     } else {
@@ -87,6 +97,9 @@ $youtube_url = Settings::get('youtube_url');
 $twitter_url = Settings::get('twitter_url');
 $twitter_style = Settings::get('twitter_style');
 $fb_url = Settings::get('fb_url');
+$discord_url = Settings::get('discord_url');
+$instagram_url = Settings::get('instagram_url');
+$tiktok_url = Settings::get('tiktok_url');
 
 $template->getEngine()->addVariables([
     'PARENT_PAGE' => PARENT_PAGE,
@@ -104,6 +117,12 @@ $template->getEngine()->addVariables([
     'TWITTER_STYLE_VALUE' => $twitter_style,
     'FACEBOOK_URL' => $language->get('admin', 'facebook_url'),
     'FACEBOOK_URL_VALUE' => Output::getClean($fb_url),
+    'DISCORD_URL' => $language->get('admin', 'discord_url'),
+    'DISCORD_URL_VALUE' => Output::getClean($discord_url),
+    'INSTAGRAM_URL' => $language->get('admin', 'instagram_url'),
+    'INSTAGRAM_URL_VALUE' => Output::getClean($instagram_url),
+    'TIKTOK_URL' => $language->get('admin', 'tiktok_url'),
+    'TIKTOK_URL_VALUE' => Output::getClean($tiktok_url),
 ]);
 
 $template->onPageLoad();

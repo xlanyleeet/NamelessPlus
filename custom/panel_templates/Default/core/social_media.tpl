@@ -63,6 +63,21 @@
                                     <input type="text" name="fburl" class="form-control" id="InputFacebook"
                                         placeholder="{$FACEBOOK_URL}" value="{$FACEBOOK_URL_VALUE}">
                                 </div>
+                                <div class="form-group">
+                                    <label for="InputDiscord">{$DISCORD_URL}</label>
+                                    <input type="text" name="discordurl" class="form-control" id="InputDiscord"
+                                        placeholder="{$DISCORD_URL}" value="{$DISCORD_URL_VALUE}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputInstagram">{$INSTAGRAM_URL}</label>
+                                    <input type="text" name="instagramurl" class="form-control" id="InputInstagram"
+                                        placeholder="{$INSTAGRAM_URL}" value="{$INSTAGRAM_URL_VALUE}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputTikTok">{$TIKTOK_URL}</label>
+                                    <input type="text" name="tiktokurl" class="form-control" id="InputTikTok"
+                                        placeholder="{$TIKTOK_URL}" value="{$TIKTOK_URL_VALUE}">
+                                </div>
                                 <input type="hidden" name="token" value="{$TOKEN}">
                                 <input type="submit" class="btn btn-primary" value="{$SUBMIT}">
                             </form>

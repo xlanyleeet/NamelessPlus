@@ -49,6 +49,39 @@ if ($social_media != null) {
     ];
 }
 
+// Discord
+$social_media = Settings::get('discord_url');
+if ($social_media != null) {
+    $social_media_icons[] = [
+        'short' => 'ds',
+        'long' => 'discord',
+        'link' => Output::getClean($social_media),
+        'text' => 'Discord',
+    ];
+}
+
+// Instagram
+$social_media = Settings::get('instagram_url');
+if ($social_media != null) {
+    $social_media_icons[] = [
+        'short' => 'ig',
+        'long' => 'instagram',
+        'link' => Output::getClean($social_media),
+        'text' => 'Instagram',
+    ];
+}
+
+// TikTok
+$social_media = Settings::get('tiktok_url');
+if ($social_media != null) {
+    $social_media_icons[] = [
+        'short' => 'tt',
+        'long' => 'tiktok',
+        'link' => Output::getClean($social_media),
+        'text' => 'TikTok',
+    ];
+}
+
 // Assign to template variables
 $template->getEngine()->addVariables([
     'SOCIAL_MEDIA_ICONS' => $social_media_icons,
