@@ -12,27 +12,11 @@
             <div class="{if $SOCIAL_MEDIA_ICONS|count > 0}six{else}eight{/if} wide column">
                 <h4 class="ui inverted header">{$SITE_NAME}</h4>
                 <div class="ui inverted link list">
-                    <span class="item">&copy; {$SITE_NAME} {'Y'|date}</span>
-                    <span class="item">Powered By <a href="https://namelessmc.com">NamelessMC</a></span>
+                    <span class="item">{$SITE_NAME} {'Y'|date}</span>
+                    <span class="item">NamelessPlus. Forked by <a href="https://namelessmc.com">NamelessMC</a></span>
                     {if $PAGE_LOAD_TIME}
                     <span class="item" id="page_load"></span>
                     {/if}
-                    <span class="item" id="darkmode">
-                        <input type="checkbox" class="darkmode-toggle" id="darkmode-toggle" onclick="toggleDarkLightMode()">
-                        <label for="darkmode-toggle" class="darkmode-toggle-label">
-                            <i class="fas fa-moon"></i>
-                            <i class="fas fa-sun"></i>
-                            <div class="darkmode-ball"></div>
-                        </label>
-
-                        <script type="text/javascript">
-                            if (document.body.classList.contains('dark')) {
-                                document.getElementById("darkmode-toggle").checked = true;
-                            } else {
-                                document.getElementById("darkmode-toggle").checked = false;
-                            }
-                        </script>
-                    </span>
                     {if isset($AUTO_LANGUAGE)}
                         <a class="item" href="javascript:" onclick="toggleAutoLanguage()" id="auto-language"></a>
                     {/if}

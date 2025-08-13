@@ -9,14 +9,20 @@
     <!-- View Site and Dark Mode Buttons -->
     <a href="{$SITE_HOME}" target="_blank" class="btn btn-primary" style="margin-right: 20px">{$VIEW_SITE}</a>
 
-    <div class="custom-control custom-switch">
-        <input type="hidden" name="dark_mode" value="0">
-        <input onclick="toggleDarkLightMode()" id="dark_mode" name="dark_mode" type="checkbox" class="custom-control-input"
-            value="1">
-        <label class="custom-control-label" for="dark_mode">
-            {$MODE_TOGGLE}
-        </label>
-    </div>
+    <button onclick="toggleDarkLightMode()" id="dark_mode_button" class="btn btn-outline-secondary" title="{$MODE_TOGGLE}" style="margin-right: 20px">
+        <i class="fas fa-moon" id="theme-icon-panel"></i>
+    </button>
+
+    <script type="text/javascript">
+        // Fallback for theme icon update (in case main script doesn't work)
+        $(document).ready(function() {
+            if ($("html").hasClass("dark")) {
+                $("#theme-icon-panel").removeClass("fa-moon").addClass("fa-sun");
+            } else {
+                $("#theme-icon-panel").removeClass("fa-sun").addClass("fa-moon");
+            }
+        });
+    </script>
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">

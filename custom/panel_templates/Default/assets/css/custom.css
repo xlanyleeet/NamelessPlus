@@ -469,3 +469,25 @@ footer.sticky-footer {
     height: 16px;
     width: 16px;
 }
+
+/* Dark mode button styling */
+#dark_mode_button {
+    border: 1px solid #d1d3e2;
+    color: #5a5c69;
+}
+
+#dark_mode_button:hover {
+    background-color: #f8f9fc;
+    border-color: #b7b9cc;
+}
+
+.dark #dark_mode_button {
+    background-color: var(--dark-color-3);
+    border-color: var(--dark-color-6);
+    color: var(--dark-text-shade-1);
+}
+
+.dark #dark_mode_button:hover {
+    background-color: var(--dark-color-6);
+    border-color: var(--dark-color-7);
+}

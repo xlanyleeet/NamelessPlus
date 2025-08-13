@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Staff panel index page
  *
@@ -80,8 +81,13 @@ if (count($dashboard_graphs)) {
 
 $dashboard_graphs = null;
 
+// Nameless news block removed - commented out
+/*
 $cache->setCache('nameless_news');
-$news = $cache->fetch('news', function () use ($language) {
+if ($cache->isCached('news')) {
+    $news = $cache->retrieve('news');
+
+} else {
     $news_query = Util::getLatestNews();
     $news_query = json_decode($news_query);
 
@@ -107,14 +113,15 @@ $news = $cache->fetch('news', function () use ($language) {
         }
     }
 
-    return $news;
-}, 3600);
+    $cache->store('news', $news, 3600);
+}
 
 if (!count($news)) {
     $template->getEngine()->addVariable('NO_NEWS', $language->get('admin', 'unable_to_retrieve_nameless_news'));
 } else {
     $template->getEngine()->addVariable('NEWS', $news);
 }
+*/
 
 // Compatibility
 if ($user->hasPermission('admincp.core.debugging')) {
@@ -125,7 +132,7 @@ if ($user->hasPermission('admincp.core.debugging')) {
 
     if (PHP_VERSION_ID < 80200) {
         $compat_warnings[] = 'PHP ' . PHP_VERSION;
-        $compat_warnings_help[] = $language->get('admin', 'compat_php_version_info', ['php' => '8.2+']);
+        $compat_warnings_help[] = $language->get('admin', 'compat_php_version_info', ['php' => '8.0+']);
     } else {
         $compat_success[] = 'PHP ' . PHP_VERSION;
     }
@@ -185,16 +192,18 @@ if ($user->hasPermission('admincp.core.debugging')) {
     }
 
     if (($pdo_driver === 'MySQL' && version_compare($pdo_server_version, '8.0', '>=')) ||
-        ($pdo_driver === 'MariaDB' && version_compare($pdo_server_version, '10.5', '>='))) {
+        ($pdo_driver === 'MariaDB' && version_compare($pdo_server_version, '10.5', '>='))
+    ) {
         $compat_success[] = $pdo_driver . ' Server ' . $pdo_server_version;
-
     } else if (($pdo_driver === 'MySQL' && version_compare($pdo_server_version, '5.7', '>=')) ||
-        ($pdo_driver === 'MariaDB' && version_compare($pdo_server_version, '10.3', '>='))) {
+        ($pdo_driver === 'MariaDB' && version_compare($pdo_server_version, '10.3', '>='))
+    ) {
         $compat_warnings[] = $pdo_driver . ' Server ' . $pdo_server_version;
-        $compat_warnings_help[] = $language->get('admin', 'compat_pdo_version_info', [
-            'mysql' => '8.0+', 'mariadb' => '10.5+',
-        ]);
-
+        $compat_warnings_help[] = $language->get(
+            'admin',
+            'compat_pdo_version_info',
+            ['mysql' => '8.0+', 'mariadb' => '10.5+']
+        );
     } else {
         $compat_errors[] = $pdo_driver . ' Server ' . $pdo_server_version;
     }
@@ -247,7 +256,7 @@ $template->getEngine()->addVariables([
     'PARENT_PAGE' => PANEL_PAGE,
     'GRAPHS' => $graphs,
     'STATISTICS' => $language->get('admin', 'statistics'),
-    'NAMELESS_NEWS' => $language->get('admin', 'nameless_news'),
+    // 'NAMELESS_NEWS' => $language->get('admin', 'nameless_news'), // Removed
     'CONFIRM_LEAVE_SITE' => $language->get('admin', 'confirm_leave_site', [
         'link' => '<strong id="leaveSiteURL">{x}</strong>',
     ]),

@@ -26,8 +26,8 @@ if (!class_exists('Default_Panel_Template')) {
 
             parent::__construct(
                 'Default',  // Template name
-                '2.2.3',  // Template version
-                '2.2.3',  // Nameless version template is made for
+                '2.2.4',  // Template version
+                '2.2.4',  // Nameless version template is made for
                 '<a href="https://coldfiredzn.com" target="_blank">Coldfire</a>',  // Author, you can use HTML here
                 __DIR__, // Specify the path to the template
             );
@@ -62,6 +62,21 @@ if (!class_exists('Default_Panel_Template')) {
                             \$("#dark_mode").prop("checked", true);
                         }
                     }
+
+                    // Update theme icon
+                    function updateThemeIcon() {
+                        const themeIcon = \$("#theme-icon-panel");
+                        if (themeIcon.length) {
+                            if ($dark_mode == 1) {
+                                themeIcon.removeClass("fa-moon").addClass("fa-sun");
+                            } else {
+                                themeIcon.removeClass("fa-sun").addClass("fa-moon");
+                            }
+                        }
+                    }
+                    
+                    // Update icon after theme is set
+                    updateThemeIcon();
 
                     // Prevents light flicker on dark mode
                     \$("body").addClass("visible");

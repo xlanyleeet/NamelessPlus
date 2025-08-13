@@ -82,25 +82,6 @@
                         </div>
 
                         <div class="col-md-3">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header bg-primary py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-white"><i class="far fa-newspaper"></i>
-                                        {$NAMELESS_NEWS}</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    {if isset($NO_NEWS)}
-                                    <div class="alert alert-warning">{$NO_NEWS}</div>
-                                    {else} {foreach from=$NEWS item=item name=newsarray}
-                                    <a href="#" onclick="confirmLeaveSite('{$item.url}')">{$item.title}</a>
-                                    <br /><small>{$item.author} | <span data-toggle="tooltip"
-                                            data-title="{$item.date}">{$item.date_friendly}</span></small> {if not
-                                    $smarty.foreach.newsarray.last}
-                                    <hr />{/if} {/foreach} {/if}
-                                </div>
-                            </div>
 
                             {if isset($SERVER_COMPATIBILITY)}
                             <div class="card shadow mb-4">
