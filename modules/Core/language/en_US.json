@@ -955,7 +955,7 @@
     "user/incorrect_password": "Your password is incorrect.",
     "user/invalid_email": "Your email is invalid.",
     "user/invalid_mcname": "Your Minecraft username is invalid.",
-    "user/invalid_recaptcha": "Invalid reCAPTCHA response.",
+    "user/invalid_recaptcha": "Invalid captcha response.",
     "user/invalid_report_content": "Unable to create report. Please ensure your report reason is between 2 and 1024 characters.",
     "user/invalid_tfa": "Invalid code, please try again.",
     "user/invalid_wall_post": "Please ensure your post is between 1 and 10000 characters.",
