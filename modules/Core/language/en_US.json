@@ -323,7 +323,7 @@
     "admin/navbar_icon": "Navbar Icon",
     "admin/navbar_icon_instructions": "You can also add an icon to each navbar item here, for example using {{faLink}}, {{semLink}}.",
     "admin/navbar_order": "Navbar Order",
-    "admin/navbar_order_instructions": "Each item can be assigned a positive number, where the lowest number will appear first in the navbar and higher numbers will come after it.",
+    "admin/navbar_order_instructions": "You can now drag and drop navigation items to reorder them. Simply grab an item by its header and move it to the desired position. The order numbers will be updated automatically.",
     "admin/navigation": "Navigation",
     "admin/navigation_settings_updated_successfully": "Navigation settings updated successfully.",
     "admin/negative": "Negative",
